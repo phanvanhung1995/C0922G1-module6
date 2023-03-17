@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<h2 style="color: red; text-align: center">CHỈNH SỬA THÔNG TIN XE KHÁCH</h2>
+
+<form *ngIf="formGroupCar" [formGroup]="formGroupCar" (ngSubmit)="edit()">
+  <div class="form-group">
+    <input hidden formControlName="id" type="text" id="id" class="form-control"
+           aria-describedby="helpId">
+  </div>
+
+  <div class="form-group">
+    <label for="carNumber">bienSoXe</label>
+    <input formControlName="carNumber" type="text" id="carNumber" class="form-control"
+           aria-describedby="helpId">
+  </div>
+
+  <div class="form-group">
+    <label for="carType">Loại Xe </label>
+    <select class="form-control" formControlName="carType" id="carType">
+      <option *ngFor="let carType of carTypeList" [ngValue]="carType">{{carType.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="busCompanyName">tenNhaXe</label>
+    <input formControlName="busCompanyName" type="text" id="busCompanyName" class="form-control"
+           aria-describedby="helpId">
+  </div>
+
+  <div class="form-group">
+    <label for="departurePoint">Điểm Đi </label>
+    <select class="form-control" formControlName="departurePoint" id="departurePoint">
+      <option *ngFor="let departurePoint of departurePoints" [ngValue]="departurePoint">{{departurePoint.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="destination">Điểm Đến </label>
+    <select formControlName="destination" class="form-control" id="destination">
+      <option *ngFor="let destination of destinations" [ngValue]="destination">{{destination.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="phoneNumber">sdt</label>
+    <input formControlName="phoneNumber" type="text" name="" id="phoneNumber" class="form-control"
+           aria-describedby="helpId">
+  </div>
+
+  <div class="form-group">
+    <label for="email">email</label>
+    <input formControlName="email" type="text" id="email" class="form-control"
+           aria-describedby="helpId">
+  </div>
+
+  <div class="form-group">
+    <label for="departure">Giờ đi: </label>
+    <input formControlName="departure" type="text" id="departure" class="form-control"
+           aria-describedby="helpId">
+  </div>
+
+  <div class="form-group">
+    <label for="arrival">gioDen</label>
+    <input formControlName="arrival" type="text" id="arrival" class="form-control"
+           aria-describedby="helpId">
+  </div>
+
+  <button routerLink="/car" type="button" class="btn btn-primary">Quay về</button>
+  <button type="submit" class="btn btn-primary">Sửa</button>
+</form>

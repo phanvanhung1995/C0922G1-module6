@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<h2 style="color: red; text-align: center">DANH SÁCH CÁC XE ĐĂNG KÝ Ở BẾN XE XYZ</h2>
+<button routerLink="/create" type="button" class="btn btn-primary">create new car</button>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>SỐ XE</th>
+    <th>LOẠI XE</th>
+    <th>TÊN NHÀ XE</th>
+    <th>ĐIỂM ĐI</th>
+    <th>ĐIỂM ĐẾN</th>
+    <th>SỐ ĐIỆN THOẠI</th>
+    <th>EMAIL</th>
+    <th>GIỜ ĐI</th>
+    <th>GIỜ ĐẾN</th>
+    <th>EDIT</th>
+    <th>DELETE</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let cars of carList">
+    <td scope="row">{{cars.carNumber}}</td>
+    <td>{{cars.carType.name}}</td>
+    <td>{{cars.busCompanyName}}</td>
+    <td>{{cars.departurePoint?.name}}</td>
+    <td>{{cars.destination?.name}}</td>
+    <td>{{cars.phoneNumber}}</td>
+    <td>{{cars.email}}</td>
+    <td>{{cars.departure}}</td>
+    <td>{{cars.arrival}}</td>
+    <td><a routerLink="/edit/{{cars.id}}">
+      <button type="button" class="btn btn-primary">Edit</button>
+    </a></td>
+    <td>
+      <button (click)="getId(cars.id, cars.carNumber)" type="button" class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+        Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal Delte</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>bạn có đồng ý xóa thông tin của xe khách có số xe {{carNumber}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="delete()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
