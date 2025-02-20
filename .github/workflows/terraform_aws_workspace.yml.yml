@@ -10,7 +10,7 @@ on:
         description: 'Working Directory'
         required: true
         default: 'awsenv/dev/env'
-        type:choice:
+        type: choice
         options:
           - awsenv/dev/env
           - awsenv/dev/group
