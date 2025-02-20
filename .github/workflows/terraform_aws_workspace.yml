@@ -44,7 +44,7 @@ jobs:
       
       - name: check if workspace exists
         id: check_workspace
-        run: 
+        run: |
           if terraform workspace list | grep -q "${{ github.event.inputs.workspace_name }}"; then
             echo "Workspace already exists"
             exit 1
