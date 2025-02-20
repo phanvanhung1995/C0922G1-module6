@@ -20,9 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      # - name: Create directory
-      #   run: mkdir -p awsenv/dev/env
-      
       - name: Checkout
         uses: actions/checkout@v2
       
@@ -40,7 +37,7 @@ jobs:
 
       - name: Terraform Init
         run: terraform init -upgrade
-        # working-directory: awsenv/dev/env
+        working-directory: awsenv/dev/env
       
       - name: check if workspace exists
         id: check_workspace
@@ -51,9 +48,9 @@ jobs:
           else
             echo "Workspace does not exist"
           fi
-        # working-directory: awsenv/dev/env
+        working-directory: awsenv/dev/env
 
       - name: Create new workspace
         if: steps.check_workspace.outcome == 'success'
         run: terraform workspace new "${{ github.event.inputs.workspace_name }}"
-        # working-directory: awsenv/dev/env
+        working-directory: awsenv/dev/env
