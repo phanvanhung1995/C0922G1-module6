@@ -1,6 +1,6 @@
 name: Create Terraform Workspace
 on:
-  Workflow_dispatch:
+  workflow_dispatch:
     inputs:
       workspace_name:
         description: 'Workspace Name'
