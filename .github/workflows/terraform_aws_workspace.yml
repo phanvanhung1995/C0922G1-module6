@@ -56,5 +56,5 @@ jobs:
         working-directory: awsenv/dev/env
 
       - name: Show Current Workspace
-        run: terraform workspace show
+        run: terraform workspace list
         working-directory: awsenv/dev/env
