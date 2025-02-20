@@ -54,3 +54,7 @@ jobs:
         if: steps.check_workspace.outcome == 'success'
         run: terraform workspace new "${{ github.event.inputs.workspace_name }}"
         working-directory: awsenv/dev/env
+
+      - name: Show Current Workspace
+        run: terraform workspace show
+        working-directory: awsenv/dev/env
